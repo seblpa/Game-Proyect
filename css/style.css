@@ -1,0 +1,36 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+
+.game-intro p {
+  font-size: 18px;
+  font-family: "Verdana"
+}
+
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+
+body button {
+  font-size: 30px;
+  background-color: #870007;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+#canvas {
+  text-align: center;
+}
+
