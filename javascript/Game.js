@@ -1,8 +1,8 @@
 function Game() {
 this.canvas = document.getElementById('canvas');
-this.ctx = canvas.getContext('2d');
-this.player = new Player(ctx);
-this.background = new Background(ctx);
+this.ctx = this.canvas.getContext('2d');
+this.player = new Player(this.ctx);
+this.background = new Background(this.ctx);
 
  //window.requestAnimationFrame(game(), game.move())
 }

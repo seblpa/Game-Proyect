@@ -1,15 +1,14 @@
 function Player(ctx,x,y) {
-  ctx.x = 255;
-  ctx.speed = 5;
-  ctx.img = new Image();
-  ctx.img.src = "imgages/player.png";
-  ctx.img.onload = function () {
-        ctx.drawImage(img, ctx.x,580);
- 
+  this.x = 255;
+  this.speed = 5;
+  this.img = new Image();
+  this.img.src = "images/player.png";
+  this.img.onload = function(){
+      this.drawImage(this.img, 0, 580);
   }
 }
 
-CreatePlayer.prototype.move = function (key) {
+Player.prototype.move = function (key) {
   switch (key) {
       case 37: // left
             ctx.x -= ctx.speed;
