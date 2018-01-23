@@ -1,28 +1,45 @@
-function Player(ctx,x,y) {
-  this.x = 255;
+function Player(ctx, x, y) {
+  this.x = 480;
+  this.y = 535;
   this.speed = 5;
-  this.img = new Image();
-  this.img.src = "images/player.png";
-  this.img.onload = function(){
-      this.drawImage(this.img, 0, 580);
-  }
+  this.ctx = ctx;
+  ctx.img = new Image();
+  ctx.img.src = "images/hero.png";
+  ctx.img.onload = function() {
+    ctx.drawImage(ctx.img, ctx.x, ctx.y);
+  };
+
+
+
+Player.prototype.render = function(ctx) {
+      this.ctx.x = this.x;
+      this.ctx.y = this.y;
 }
 
-Player.prototype.move = function (key) {
-  switch (key) {
-      case 37: // left
-            ctx.x -= ctx.speed;
-            if (ctx.x < 35) {
-                  ctx.x = 35;
-            }
-      break;
-      case 39: // right
-            ctx.x += ctx.speed;
-            if (ctx.x > 480) {
-                  ctx.x = 480;
-            }
-      break;      
-      default:
-      return; // exit ctx handler for other keys
-  }
+Player.prototype.moveRight = function (keyCode) {
+ this.x+=1;
+ console.log(this.x)
+//       console.log('antes: ' + this.x);
+//       /*if(keyCode === 39 && this.x > 480) {
+//             this.x = 480;
+//         }
+//       */
+      
+//       switch (keyCode) {
+           
+//         case 39: 
+//         if (this.x > 480) {
+//             this.x += 1;
+//         }
+//         break;
+//         case 37: 
+//         if (this.x < 20) {
+//               this.x = 20;
+//         }
+//         break;
+//       default:
+//         return;
+//   }
+  
+}
 }
