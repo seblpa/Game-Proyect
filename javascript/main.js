@@ -1,6 +1,6 @@
 window.onload = function () {
 var game = new Game();
-console.log(game.bullet)
+var bullet;
 $(document).keydown(function(e){
   switch(e.keyCode){
       case 37: // izquierda
@@ -11,27 +11,22 @@ $(document).keydown(function(e){
       game.player.move(e.keyCode);
       game.player.updatePlayer();
       break;
-      case 32:  //bullet
-      console.log("disparo!!!!");
-      game.bullet.moveBullet(e.keyCode);
-      //game.bullet.updateBullet();
+      case 32:  //bullets
+      bullet = new Bullet(game.player.x,game.player.y,game.ctx)
       break;
   }
 });
 
-
-
-
 //aqui iremos añadiendo update de enemy, y otros objetos
 function update(){
   game.player.updatePlayer(game.ctx, game.player);
-  game.bullet.updateBullet(game.ctx)
-  game.bullet.moveBullet()
+  if(typeof(bullet)!="undefined"){
+    bullet.updateBullet(game.ctx)
+    bullet.moveBullet() 
+  }
+  game.enemy.updateEnemy(game.ctx, game.enemy);
+  game.enemy.move();
 }
-
-
-
-
 
 
 

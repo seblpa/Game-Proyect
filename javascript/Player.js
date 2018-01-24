@@ -7,7 +7,7 @@ function Player(ctx) {
   this.ctx = ctx;
 }
 
-Player.prototype.move= function(key) {
+Player.prototype.move = function(key) {
   switch(key) {
     case 37:
     this.x -= this.speed;
@@ -17,7 +17,6 @@ Player.prototype.move= function(key) {
     break;
 }
 }
-
 
 Player.prototype.updatePlayer = function (){
   this.ctx.fillStyle = "red";
