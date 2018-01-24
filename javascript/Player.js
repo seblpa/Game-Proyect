@@ -1,45 +1,26 @@
-function Player(ctx, x, y) {
-  this.x = 480;
-  this.y = 535;
-  this.speed = 5;
+function Player(ctx) {
+  this.x = 500;
+  this.y = 490;
+  this.width = 100;
+  this.height = 100;
+  this.speed = 50;
   this.ctx = ctx;
-  ctx.img = new Image();
-  ctx.img.src = "images/hero.png";
-  ctx.img.onload = function() {
-    ctx.drawImage(ctx.img, ctx.x, ctx.y);
-  };
-
-
-
-Player.prototype.render = function(ctx) {
-      this.ctx.x = this.x;
-      this.ctx.y = this.y;
 }
 
-Player.prototype.moveRight = function (keyCode) {
- this.x+=1;
- console.log(this.x)
-//       console.log('antes: ' + this.x);
-//       /*if(keyCode === 39 && this.x > 480) {
-//             this.x = 480;
-//         }
-//       */
-      
-//       switch (keyCode) {
-           
-//         case 39: 
-//         if (this.x > 480) {
-//             this.x += 1;
-//         }
-//         break;
-//         case 37: 
-//         if (this.x < 20) {
-//               this.x = 20;
-//         }
-//         break;
-//       default:
-//         return;
-//   }
-  
+Player.prototype.move= function(key) {
+  var that = this;
+  switch(key) {
+    case 37:
+    that.x -= this.speed;
+    break;
+    case 39:
+    that.x += this.speed;
+    break;
 }
+}
+
+
+Player.prototype.updatePlayer = function (){
+  this.ctx.fillStyle = "red";
+  this.ctx.fillRect(this.x, this.y, this.width, this.height);
 }

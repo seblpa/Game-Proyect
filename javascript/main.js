@@ -1,29 +1,46 @@
-window.onload = function() {
-  document.getElementById("start-button").onclick = function() {
-    var game = new Game();
-    setInterval(function() {
-      game.player.render();
-      game.player.moveRight();
-    }, 100);
-  };
-}
+window.onload = function () {
+var game = new Game();
+var bullet = new Bullet(game.player.x)
+bullet.moveBullet()
 
 
-  /*
-  document.onkeydown = function (key) {
-    switch (key) {
-          case 37: // left
-                if (game.player.x - game.player.speed > 0) {
-                      game.player.x -= game.player.speed;
-                }
-          break;
-          case 39: // right
-          if (game.player.x + game.player.speed < 950) {
-                game.player.x += game.player.speed;
-          }
-          break;      
-         
+$(document).keydown(function(e){
+  switch(e.keyCode){
+      case 37: // izquierda
+      game.player.move(e.keyCode);
+      game.player.updatePlayer();
+      break;
+      case 39: // derecha
+      game.player.move(e.keyCode);
+      game.player.updatePlayer();
+      break;
+      case 32:  //bullet
+      console.log("disparo!!!!")
   }
+});
+
+
+
+
+//aqui iremos añadiendo update de enemy, y otros objetos
+function update(){
+  game.player.updatePlayer(game.ctx, game.player);
 }
+
+
+
+
+
+
+
+//estas lineas ya no se tocan
+function updateCanvas(){
+  game.ctx.clearRect(0,0,1000,600);
+  update();
+  window.requestAnimationFrame(updateCanvas);
 }
-*/
+window.requestAnimationFrame(updateCanvas);
+}
+
+
+
