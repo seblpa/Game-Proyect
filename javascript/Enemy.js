@@ -3,7 +3,7 @@ function Enemy (ctx) {
   this.y = 10;
   this.width = 150;
   this.height = 80;
-  this.speed = 30;
+  this.speed = 2;
   this.ctx = ctx;
   this.time = Date.now();
 }
@@ -14,9 +14,29 @@ Enemy.prototype.updateEnemy = function() {
 }
 
 Enemy.prototype.move = function() {
-  var now = Date.now()
-  var delta = this.time-now;
-  this.time = now;
-  this.x -= this.speed*(delta/1000);
+  this.x += this.speed;
+}
+
+Enemy.prototype.moveR = function() {
+  if(this.canMoveR())this.x += this.speed;
+}
+
+Enemy.prototype.moveL = function() {
+  if(this.canMoveL())this.x -= this.speed;
+}
+
+Enemy.prototype.canMoveR = function() {
+  console.log(this.x,this.speed)
+  if(this.x >=850){
+    this.speed = -2;
+    this.y += 20;
+  }
+}
+
+Enemy.prototype.canMoveL = function() {
+   if(this.x <= 0){
+      this.speed= 2;
+      this.y += 20;
+   }; 
 }
 

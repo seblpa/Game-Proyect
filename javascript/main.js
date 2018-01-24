@@ -26,6 +26,10 @@ function update(){
   }
   game.enemy.updateEnemy(game.ctx, game.enemy);
   game.enemy.move();
+  game.enemy.moveR();
+  game.enemy.moveL();
+  game.enemy.canMoveR();
+  game.enemy.canMoveL();
 }
 
 
