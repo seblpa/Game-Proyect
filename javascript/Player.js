@@ -8,13 +8,12 @@ function Player(ctx) {
 }
 
 Player.prototype.move= function(key) {
-  var that = this;
   switch(key) {
     case 37:
-    that.x -= this.speed;
+    this.x -= this.speed;
     break;
     case 39:
-    that.x += this.speed;
+    this.x += this.speed;
     break;
 }
 }
