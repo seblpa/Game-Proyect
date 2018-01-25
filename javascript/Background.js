@@ -1,7 +1,8 @@
 function Background(ctx) {
-  ctx.background = new Image();
-  ctx.background.src = "images/background.png";
-  ctx.background.onload = function() {
-  ctx.drawImage(ctx.background, 0, 0);
-  };
+  this.img = new Image();
+  this.img.src = "images/background.png";
+}
+
+Background.prototype.draw = function(ctx) {
+  ctx.drawImage(this.img, 0, 0);
 }

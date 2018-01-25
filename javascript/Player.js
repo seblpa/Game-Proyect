@@ -5,6 +5,8 @@ function Player(ctx) {
   this.height = 100;
   this.speed = 50;
   this.ctx = ctx;
+  this.img = new Image();
+  this.img.src = 'images/hero.png'
 }
 
 Player.prototype.move = function(key) {
@@ -19,6 +21,7 @@ Player.prototype.move = function(key) {
 }
 
 Player.prototype.updatePlayer = function (){
-  this.ctx.fillStyle = "red";
-  this.ctx.fillRect(this.x, this.y, this.width, this.height);
+  this.ctx.drawImage(this.img,this.x,this.y)
+  // this.ctx.fillStyle = "red";
+  // this.ctx.fillRect(this.x, this.y, this.width, this.height);
 }

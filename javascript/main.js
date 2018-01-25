@@ -1,6 +1,8 @@
 window.onload = function () {
+var background = new Background();
 var game = new Game();
-var bullet;
+game.generateEnemies()
+var bullet = new Bullet();
 $(document).keydown(function(e){
   switch(e.keyCode){
       case 37: // izquierda
@@ -17,22 +19,22 @@ $(document).keydown(function(e){
   }
 });
 
-//aqui iremos añadiendo update de enemy, y otros objetos
 function update(){
+  background.draw(game.ctx);
+  game.detecteColision(bullet);
+  game.updateEnemiesDirection();
+  game.updateEnemiesMove();
+  game.generateExplosion();
   game.player.updatePlayer(game.ctx, game.player);
   if(typeof(bullet)!="undefined"){
     bullet.updateBullet(game.ctx)
     bullet.moveBullet() 
   }
-  game.enemy.updateEnemy(game.ctx, game.enemy);
-  game.enemy.move();
-  game.enemy.moveR();
-  game.enemy.moveL();
-  game.enemy.canMoveR();
-  game.enemy.canMoveL();
+  game.enemies.forEach(function(enemy){ 
+    enemy.updateEnemy();  
+  })
+ 
 }
-
-
 
 //estas lineas ya no se tocan
 function updateCanvas(){
@@ -42,5 +44,6 @@ function updateCanvas(){
 }
 window.requestAnimationFrame(updateCanvas);
 }
+
 
 
