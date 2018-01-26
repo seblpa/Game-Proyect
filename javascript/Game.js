@@ -80,5 +80,5 @@ Game.prototype.counterDown = function() {
 Game.prototype.renderCounter = function() {
   this.ctx.font = "30px Ubuntu";
   this.ctx.fillStyle = "#fff";
-  this.ctx.fillText("Time: " + this.timer, 200, 500);
+  this.ctx.fillText("Time: " + this.timer, 835, 500);
 };
